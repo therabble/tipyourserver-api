@@ -49,13 +49,22 @@ function toRecord(row) {
     };
 }
 
+async function invalidateCache() {
+    try {
+        const data = await fetchData();
+        cache = data;
+    } catch (error) {
+        console.error(`Failed to invalidate cache`, error);
+    }
+}
+
 module.exports = async (_, res) => {
     try {
         const data = await cache;
         res.json(data);
 
         if (Date.now() - data.timestamp > 1000 * 60 * 60) {
-            cache = fetchData();
+            invalidateCache();
         }
     } catch (error) {
         res.statusCode = 500;
