@@ -8,7 +8,6 @@ function fetchData() {
         fetch(process.env.SPREADSHEET_CSV_URL)
             .then(validateFetch)
             .then(parseSpreadsheet)
-            .catch(console.error)
     );
 }
 
