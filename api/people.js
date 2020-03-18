@@ -60,6 +60,7 @@ async function invalidateCache() {
 module.exports = async (_, res) => {
     try {
         const data = await cache;
+        res.setHeader('Access-Control-Allow-Origin', '*');
         res.json(data);
 
         if (Date.now() - data.timestamp > 1000 * 60 * 60) {
