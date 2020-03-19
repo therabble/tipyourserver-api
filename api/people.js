@@ -29,13 +29,15 @@ function parseSpreadsheet(spreadsheet) {
 
 function toRecord(row) {
     const [
-        timestamp,
+        _timestamp,
         name,
-        establishment,
+        _establishmentUnlisted,
         closed,
         venmoUser,
-        paypalUser,
-        paypalURL
+        paypalEmail,
+        paypalURL,
+        establishment,
+        venmoURL
     ] = row;
 
     return {
@@ -43,7 +45,8 @@ function toRecord(row) {
         establishment,
         haveClosed: closed,
         venmoUser: venmoUser || null,
-        paypalUser: paypalUser || null,
+        venmoURL: venmoURL || null,
+        paypalUser: paypalEmail || null,
         paypalURL: paypalURL || null
     };
 }
