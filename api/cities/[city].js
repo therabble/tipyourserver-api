@@ -37,7 +37,9 @@ function toRecord(row, rowMap) {
     venmoUser: row[rowMap.indexOf("venmoUser")] || null,
     venmoURL: row[rowMap.indexOf("venmoURL")] || null,
     paypalUser: row[rowMap.indexOf("paypalUser")] || null,
-    paypalURL: row[rowMap.indexOf("paypalURL")] || null
+    paypalURL: row[rowMap.indexOf("paypalURL")] || null,
+    cashappUser: row[rowMap.indexOf("cashappUser")] || null,
+    cashappURL: row[rowMap.indexOf("cashappURL")] || null
   };
 }
 
