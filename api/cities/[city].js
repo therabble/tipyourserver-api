@@ -1,6 +1,5 @@
 const parse = require("csv-parse/lib/sync");
 const fetch = require("node-fetch");
-
 const DATA_SOURCES = require("../../config");
 
 // let cache = fetchData(DATA_SOURCES);
