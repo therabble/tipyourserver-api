@@ -1,11 +1,51 @@
 const parse = require('csv-parse/lib/sync');
 const fetch = require('node-fetch');
 
-let cache = fetchData();
+let DATA_SOURCES = [
+      {
+        "locale": "MSN",
+        "type": "gdoc-1",
+        "uri": "https://docs.google.com/spreadsheets/d/1rS6lfApsy8VzzAeFCKZzfPM8A3R-4GaYj-OOrznceGc/export?format=csv",
+        "format": "csv"
+        "row" : [
+        "_timestamp",
+        "name",
+        "_establishmentUnlisted",
+        "closed",
+        "venmoUser",
+        "paypalEmail",
+        "paypalURL",
+        "establishment",
+        "venmoURL"
+        ]
+      },
+      {
+        "locale": "PGH",
+        "type": "gdoc-1",
+        "uri": "https://docs.google.com/spreadsheets/d/1ggLPsikyyjQw5bJF0zN08nneJoBHA8HlhC0mcnH6fYQ/export?format=csv#gid=1564003411",
+        "format": "csv"
+        "row" : [
+        //"_timestamp",
+        "name",
+        "paypalURL",
+        "establishment",
+        "venmoURL"
+        // "_establishmentUnlisted",
+        // "closed",
+        // "venmoUser",
+        // "paypalEmail",
+        ]
+      }
+    ]
 
-function fetchData() {
+let cache = fetchData(DATA_SOURCES);
+let selected_source=0;
+
+function fetchData(sources) {
+    console.log("process.env.env_loaded: ", process.env.env_loaded);
+    console.log("Fetching source", sources[selected_source].uri);
     return (
-        fetch(process.env.SPREADSHEET_CSV_URL)
+        fetch(sources[selected_source].uri)
             .then(validateFetch)
             .then(parseSpreadsheet)
     );
@@ -38,12 +78,12 @@ function toRecord(row) {
         paypalURL,
         establishment,
         venmoURL
-    ] = row;
+    ] = DATASrow;
 
     return {
         name,
         establishment,
-        haveClosed: closed,
+        haveClosed: closed || null,
         venmoUser: venmoUser || null,
         venmoURL: venmoURL || null,
         paypalUser: paypalEmail || null,
