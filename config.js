@@ -30,4 +30,5 @@ module.exports = [
     uri: "https://docs.google.com/spreadsheets/d/1ggLPsikyyjQw5bJF0zN08nneJoBHA8HlhC0mcnH6fYQ/export?format=csv&gid=1564003411",
     format: "csv",
     row: ["name", "paypalURL", "establishment", "venmoURL"]
+  }
 ];
