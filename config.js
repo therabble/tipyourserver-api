@@ -24,7 +24,7 @@ module.exports = [
     homepage: "http://centerforethicsandpolicy.com/PGHTipJar.html",
     signup: "https://docs.google.com/forms/d/e/1FAIpQLSdTMjsRdW3o3MzZrxE_ibD0TVV6ki-5Vp81qJUAoR1ouU2_cA/viewform",
     logo: "",
-    background: "http://centerforethicsandpolicy.com/img/PGH11.jpg",
+    background: "PGH11_small.jpg",
     email: "tipyourserver@therabble.co",
     type: "gdoc-1",
     uri: "https://docs.google.com/spreadsheets/d/1ggLPsikyyjQw5bJF0zN08nneJoBHA8HlhC0mcnH6fYQ/export?format=csv&gid=1564003411",
