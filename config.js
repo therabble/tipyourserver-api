@@ -13,7 +13,7 @@ module.exports = [
     type: "gdoc-1",
     uri: "https://docs.google.com/spreadsheets/d/1rS6lfApsy8VzzAeFCKZzfPM8A3R-4GaYj-OOrznceGc/export?format=csv",
     format: "csv",
-    row: ["_timestamp", "name", "_establishmentUnlisted", "closed", "venmoUser", "paypalEmail", "paypalURL", "establishment", "cashappURL" "venmoURL"]
+    row: ["_timestamp", "name", "_establishmentUnlisted", "closed", "venmoUser", "paypalEmail", "paypalURL", "establishment", "cashappURL", "venmoURL"]
   },
   {
     locale: "PGH",
