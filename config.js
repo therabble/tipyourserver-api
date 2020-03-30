@@ -22,7 +22,7 @@ module.exports = [
     state_code: "PA",
     country: "USA",
     homepage: "http://centerforethicsandpolicy.com/PGHTipJar.html",
-    signup: "https://docs.google.com/forms/d/e/1FAIpQLSdTMjsRdW3o3MzZrxE_ibD0TVV6ki-5Vp81qJUAoR1ouU2_cA/viewform",
+    signup: "https://docs.google.com/forms/d/e/1FAIpQLSe55XkbBMgOHwqHqfFNFJLiuORCtwDHaM1jPhYPiYqNkyFtxg/viewform",
     logo: "",
     background: "PGH11_small.jpg",
     email: "tipyourserver@therabble.co",
