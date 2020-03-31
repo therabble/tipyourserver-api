@@ -6,10 +6,10 @@ module.exports = [
     state_code: "WI",
     country: "USA",
     homepage: "http://bit.ly/MSNTipJar",
-    signup: "http://bit.ly/MadisonVirtualTipJar",
+    signup: "https://bit.ly/MadisonVirtualTipJar",
     logo: "https://lh3.googleusercontent.com/gsI1DhBOfhdsztJYFwY3Rxf5lU2Ky0gWkjNgqTNhpM1lL1zVib3U1HnowbpKOjm03b-MhTPO8PeHy5tmZEyP7jIt1OHcGhGl-Pcnd7qi6LQ4psKNXbP0UUt_Nf5r2J80MQ",
     background: "greenwindows_small.jpg",
-    email: "tipyourserver@therabble.co",
+    email: "tipyourserver.org.MSN@therabble.co",
     type: "gdoc-1",
     uri: "https://docs.google.com/spreadsheets/d/1rS6lfApsy8VzzAeFCKZzfPM8A3R-4GaYj-OOrznceGc/export?format=csv",
     format: "csv",
@@ -22,13 +22,13 @@ module.exports = [
     state_code: "PA",
     country: "USA",
     homepage: "http://centerforethicsandpolicy.com/PGHTipJar.html",
-    signup: "https://docs.google.com/forms/d/e/1FAIpQLSdTMjsRdW3o3MzZrxE_ibD0TVV6ki-5Vp81qJUAoR1ouU2_cA/viewform",
-    logo: "",
+    signup: "https://docs.google.com/forms/d/e/1FAIpQLSe55XkbBMgOHwqHqfFNFJLiuORCtwDHaM1jPhYPiYqNkyFtxg/viewform",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/13/Ensign_of_Pittsburgh%2C_Pennsylvania.svg",
     background: "PGH11_small.jpg",
-    email: "tipyourserver@therabble.co",
+    email: "tipyourserver.org.PGH@therabble.co",
     type: "gdoc-1",
-    uri: "https://docs.google.com/spreadsheets/d/1ggLPsikyyjQw5bJF0zN08nneJoBHA8HlhC0mcnH6fYQ/export?format=csv&gid=1564003411",
+    uri: "https://docs.google.com/spreadsheets/d/1ReVX_MiBhXK3y48QsN4zY8riNsqWtRYPxTOjACD1yBQ/export?format=csv&gid=969583210",
     format: "csv",
-    row: ["name", "paypalURL", "establishment", "venmoURL"]
+    row: ["_timestamp","name","establishment","_establishmentUnlisted", "venmoURL", "paypalURL", "cashappURL"]
   }
 ];
