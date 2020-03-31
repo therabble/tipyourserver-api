@@ -14,6 +14,7 @@ function toConfig(config) {
     logo: config.logo,
     background: config.background,
     email: config.email,
+    usage_note: config.usage_note,
   };
 }
 
