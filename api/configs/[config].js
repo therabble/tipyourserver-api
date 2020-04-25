@@ -1,6 +1,36 @@
 const parse = require("csv-parse/lib/sync");
 const fetch = require("node-fetch");
-const DATA_SOURCES = require("../../config");
+const { CosmosClient } = require("@azure/cosmos");
+const { performance } = require("perf_hooks");
+
+const connectionString = process.env.SECRET_CONNECTION_STRING;
+
+if (!connectionString) {
+  throw new Error("SECRET_CONNECTION_STRING env variable not set");
+}
+
+const [endpointString, keyString] = connectionString.split(";");
+const [, endpoint] = endpointString.split("=");
+const [, key] = keyString.split("=");
+
+const requestPlugin = async (requestContext, next) => {
+  const start = performance.now();
+  const response = await next(requestContext);
+  const end = performance.now();
+  console.log(requestContext.method, requestContext.path, end - start);
+  return response;
+};
+
+const client = new CosmosClient({
+  endpoint,
+  key,
+  plugins: [{ on: "request", plugin: requestPlugin }],
+  connectionPolicy: {
+    enableEndpointDiscovery: false,
+  },
+});
+
+const container = client.database("tip-your-server").container("production");
 
 function toConfig(config) {
   return {
@@ -23,7 +53,9 @@ module.exports = async (req, res) => {
     const {
       query: { config },
     } = req;
-    const cityConfig = DATA_SOURCES.find((source) => source.locale === config);
+    console.log("config: ", config);
+    const { resource: dataSource } = await container.item(config, config).read();
+    const cityConfig = dataSource;
     const data = {
       timestamp: Date.now(),
       config: toConfig(cityConfig),
