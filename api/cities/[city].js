@@ -1,6 +1,7 @@
 const parse = require("csv-parse/lib/sync");
 const fetch = require("node-fetch");
 const { CosmosClient } = require("@azure/cosmos");
+const { performance } = require("perf_hooks");
 
 const connectionString = process.env.SECRET_CONNECTION_STRING;
 
@@ -8,7 +9,27 @@ if (!connectionString) {
   throw new Error("SECRET_CONNECTION_STRING env variable not set");
 }
 
-const client = new CosmosClient(connectionString);
+const [endpointString, keyString] = connectionString.split(";");
+const [, endpoint] = endpointString.split("=");
+const [, key] = keyString.split("=");
+
+const requestPlugin = async (requestContext, next) => {
+  const start = performance.now();
+  const response = await next(requestContext);
+  const end = performance.now();
+  console.log(requestContext.method, requestContext.path, end - start);
+  return response;
+};
+
+const client = new CosmosClient({
+  endpoint,
+  key,
+  plugins: [{ on: "request", plugin: requestPlugin }],
+  connectionPolicy: {
+    enableEndpointDiscovery: false,
+  },
+});
+
 const container = client.database("tip-your-server").container("production");
 
 function toRecord(row, rowMap) {
