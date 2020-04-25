@@ -38,14 +38,9 @@ module.exports = async (req, res) => {
       timestamp: Date.now(),
       people: rows.map((row) => toRecord(row, dataSource.row)),
     };
-    // const data = await cache;
     res.setHeader("Cache-Control", "s-maxage=300");
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.json(data);
-
-    // if (Date.now() - data.timestamp > 1000 * 60 * 60) {
-    //   invalidateCache();
-    // }
   } catch (error) {
     res.statusCode = 500;
     console.log(error);
