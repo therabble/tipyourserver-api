@@ -4,6 +4,7 @@
   "private": true,
   "description": "JSON API for virtual tip jar for Madison service industry staff affected by COVID-19 closures",
   "dependencies": {
+    "@azure/cosmos": "^3.6.3",
     "csv-parse": "^4.8.8",
     "node-fetch": "^2.6.0",
     "now": "^17.0.4"
